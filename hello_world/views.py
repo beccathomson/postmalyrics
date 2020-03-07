@@ -11,9 +11,9 @@ def search_lyrics(request):
     form = LyricInputForm(request.POST or None)
     if request.method == 'POST':
         form = LyricInputForm(request.POST or None)
-        input_lyric = form.cleaned_data.get("inputLyric")
-        print("GOT A LYRIC"+input_lyric)
-        return render(input_lyric)
-        # return redirect('search')
+        input_lyric = form.get_lyric()
+        print("GOT A LYRIC:  "+input_lyric)
+        # need to render the results now...
+        return render(request, 'hello_world.html', {'form': form})  
     else:
         return render(request, 'hello_world.html', {'form': form})    
