@@ -1,7 +1,8 @@
 <h1>PostMaLyrics: a professional service for rappers who mean business</h1>
 
-<form action="search_lyrics" method="post"> 
+<form action="." method="post"> 
     {% csrf_token %}
     <input type="text" name="lyric" id="input_lyric" placeholder="lyric">
     <input type="submit" name="search lyrics" value="search lyrics" id="search_lyrics" class="button_drop outline">
 </form>    
+{% if output %}<h3>{{ output }}</h3>{% endif %}

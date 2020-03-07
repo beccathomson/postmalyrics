@@ -1,7 +1,7 @@
 from datamuse import datamuse
 
 api = datamuse.Datamuse()
-api.words(rel_rhy='ninth', max=5)  # words that rhyme with "ninth"
+api.words(rel_rhy=input_lyric, max=5)  # words that rhyme with "ninth"
 []
 api.words(rel_rhy='orange', max=5)  # words that rhyme with "orange"
 [{'word': 'door hinge', 'score': 74, 'numSyllables': 2}]
