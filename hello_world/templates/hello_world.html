@@ -1,12 +1,9 @@
-<h1>Hello, World!</h1>
+<h1>PostMaLyrics: a professional service for rappers who mean business</h1>
 
 <form action="." method="post"> {% csrf_token %}     
     <div class="form-group">
-        <input type="text" class="form-control" name="email" id="inputUsernameEmail" placeholder="Email">
-    </div>
-    <div class="form-group">
-        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+        <input type="text" class="form-control" name="lyric" id="inputLyric" placeholder="Lyric">
     </div>
 
-    <input type="submit" name="Sign up" value="Sign up" id="Sign_up" class="button_drop outline">
+    <input type="submit" name="search lyrics" value="search lyrics" id="search_lyrics" class="button_drop outline">
 </form>    
