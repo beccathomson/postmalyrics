@@ -1,7 +1,12 @@
 <h1>Hello, World!</h1>
 
-<form action="/action_page.php">
-    <label for="lyric">Lyric to rhyme:</label><br>
-    <input type="text" id="lyric" name="lyric" value="bitch"><br>
-    <input type="submit" value="Submit">
-  </form> 
+<form action="." method="post"> {% csrf_token %}     
+    <div class="form-group">
+        <input type="text" class="form-control" name="email" id="inputUsernameEmail" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
+
+    <input type="submit" name="Sign up" value="Sign up" id="Sign_up" class="button_drop outline">
+</form>    
