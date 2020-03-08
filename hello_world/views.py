@@ -7,15 +7,16 @@ import random
 
 def index(request): 
     output = ""
+    kanye = ""
 
     if request.method == 'POST':
         form = LyricInputForm(request.POST)
         input_lyric = form.get_lyric()
-        output = get_output(input_lyric)
+        output, kanye = get_output(input_lyric)
     else:
         form = LyricInputForm(None) # initial load
     
-    return render(request, 'index.html', {'form':form, 'output':output})
+    return render(request, 'index.html', {'form':form, 'output':output, 'kanye':kanye})
 
 
 def get_output(input_lyric):
@@ -31,7 +32,17 @@ def get_output(input_lyric):
     
     # Get table of rhyming lines
     rhyme_tbl = lyrics_tbl[lyrics_tbl["END_WORD"].isin(final_output)]   # filter lyric table to only rhyming lines
+<<<<<<< HEAD
     rhyme_tbl = [rhyme_tbl["LINE"]]                                     # take only the column with desired lyric, turn to list
 
 
     return rhyme_tbl
+=======
+    if (len(rhyme_tbl) < 1):
+        rhyme_tbl = ""
+    else:
+        rhyme_tbl = [rhyme_tbl[["LINE"]]] # take only the column with desired lyric, turn to list
+
+
+    return final_output, rhyme_tbl
+>>>>>>> 417d599864dfe96b19a097b7af83733d95941de9
