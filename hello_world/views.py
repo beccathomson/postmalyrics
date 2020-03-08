@@ -35,7 +35,6 @@ def get_output(input_lyric):
     if (len(rhyme_tbl) < 1):
         rhyme_tbl = ""
     else:
-        rhyme_tbl = [rhyme_tbl[["LINE"]]] # take only the column with desired lyric, turn to list
-
+        rhyme_tbl = rhyme_tbl["LINE"] # take only the column with desired lyric
 
     return final_output, rhyme_tbl
