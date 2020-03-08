@@ -23,9 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$b4u_d1yp7fn2(-v5r0#+$2(496$*@6$*ov-zc^e8qn@p&imwv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  # TODO: add your Google Cloud Project-ID here
+    'http://cmd-f2020-270508.appspot.com', # must add the app engine (project-id) domain here
+]
 
 # Application definition
 
