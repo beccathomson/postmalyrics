@@ -33,7 +33,7 @@ def index(request):
 def get_rhymes(input_lyric):
     # Get words that rhyme with input word
     api = datamuse.Datamuse()
-    rhymes = api.words(rel_rhy=input_lyric, max=50)
+    rhymes = api.words(rel_rhy=input_lyric, max=75)
     sorted_output = sorted(rhymes, key = lambda i: i['numSyllables'])
     rhymes = [x['word'] for x in sorted_output]
     return [word.replace('"', '') for word in rhymes]
@@ -54,7 +54,6 @@ def get_artist_lyrics(artist_file, input_lyric, rhymes):
             for i in range (0, NUM_ROWS):
                 rand = random.sample(range(len(rhyme_tbl)), 1)
                 new_tbl = pd.concat([rhyme_tbl.iloc[rand], new_tbl], ignore_index=True)
-            print(new_tbl)    
             rhyme_tbl = new_tbl
         rhyme_tbl = rhyme_tbl["LINE"] # take only the column with desired lyric
     

@@ -29,111 +29,116 @@
     <img src="{% static "how_to_be_woman.png" %}" >
     <img src="{% static "how_to_make_friends.png" %}">
 </div>
-{% endif %}
+{% else %}
 
-
-{% if rhymes %}<h3>Classic Rhymes</h3>
-   <p1 class="rhymes">{% for word in rhymes %}
-        {{ word }},
-    {% endfor %}
-    </p1> 
-{% endif %}
-
-
-<div class="flex-container row1">
-
-
-<div>
-<h3> Nicki's Notes:</h3>
-<div class="hexa">
-    <div class="hex1">
-      <div class="hex2">
-        <img src="{% static "nicki_green.png" %}" alt="Nicki" class = "hex_face"/>
-      </div>
-    </div>
-  </div>
-</div>
-{% if nicki.any %}
-    <table>
-        {% for line in nicki %}
-        <tr> 
-            <td>{{ line }}</td>
-        </tr>
+    {% if rhymes %}<h3>classic rhymes</h3>
+    <p1 class="rhymes">{% for word in rhymes %}
+            {{ word }},
         {% endfor %}
-    </table>
-{% endif %}
-
-{% if kanye.any %}
-    
-    <table>
-        {% for line in kanye %}
-        <tr> 
-            <td>{{ line }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-<div>
-<h3> Kanye Counsels:</h3>
-<div class="hexa">
-    <div class="hex1">
-      <div class="hex2">
-        <img src="{% static "kanye_green.png" %}" alt="Ye" class = "hex_face"/>
-      </div>
-    </div>
-  </div>
-</div>
-{% endif %}
-
-</div>
+        </p1> 
+    {% endif %}
 
 
-<div class="flex-container row2">
-
-{% if postie.any %}
-<div>
-<h3> Posty Proposes:</h3>
-
-<div class="hexa">
-    <div class="hex1">
-      <div class="hex2">
-        <img src="{% static "posty_green.png" %}" alt="Posty" class = "hex_face"/>
-      </div>
-    </div>
-  </div>
-</div>
-
-    <table>
-        {% for line in postie %}
-        <tr> 
-            <td>{{ line }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-{% endif %}
+    <div class="flex-container row1">
 
 
-{% if mia.any %}
-   <table >
-        {% for line in mia %}
-        <tr> 
-            <td>{{ line }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-{% endif %}
-
-<div>
-    <h3> M.I.A Insists:</h3>
-    
+    <div>
+    <h3> Nicki's notes:</h3>
     <div class="hexa">
         <div class="hex1">
-            <div class="hex2">
-            <img src="{% static "mia_green.png" %}" alt="MIA" class = "hex_face"/>
-            </div>
+        <div class="hex2">
+            <img src="{% static "nicki_green.png" %}" alt="Nicki" class = "hex_face"/>
         </div>
         </div>
     </div>
-</div>
+    </div>
+    {% if nicki.any %}
+        <table>
+            {% for line in nicki %}
+            <tr> 
+                <td>{{ line }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <table><tr><td>"looks like i'm going for a swim"</td></tr></table>
+    {% endif %}
+
+    {% if kanye.any %}
+        <table>
+            {% for line in kanye %}
+            <tr> 
+                <td>{{ line }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <table><tr><td>"yeezy ye"</td></tr></table>
+    {% endif %}
+
+    <div>
+    <h3> Kanye counsels:</h3>
+    <div class="hexa">
+        <div class="hex1">
+        <div class="hex2">
+            <img src="{% static "kanye_green.png" %}" alt="Ye" class = "hex_face"/>
+        </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <div class="flex-container row2">
+    <div>
+    <h3> Posty proposes:</h3>
+
+    <div class="hexa">
+        <div class="hex1">
+        <div class="hex2">
+            <img src="{% static "posty_green.png" %}" alt="Posty" class = "hex_face"/>
+        </div>
+        </div>
+    </div>
+    </div>
+    {% if postie.any %}
+        <table>
+            {% for line in postie %}
+            <tr> 
+                <td>{{ line }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <table><tr><td>"canada POST"</td></tr></table>
+    {% endif %}
+
+
+    {% if mia.any %}
+        <table >
+            {% for line in mia %}
+            <tr> 
+                <td>{{ line }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <table><tr><td>"guns guns guns and english swag"</td></tr></table>
+    {% endif %}
+
+    <div>
+        <h3> M.I.A insists:</h3>
+        <div class="hexa">
+            <div class="hex1">
+                <div class="hex2">
+                <img src="{% static "mia_green.png" %}" alt="MIA" class = "hex_face"/>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
 
 </body>
 </html>
