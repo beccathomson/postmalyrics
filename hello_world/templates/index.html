@@ -22,9 +22,14 @@
 
 {% if placeholder %}
 <div class="flex-container">
-<img src="{% static "how_to_hack.png" %}" alt="hackerman" class="hackerman">
-<img src="{% static "how_to_rap.png" %}" alt="rapperman" class="rapperman">
-<img src="{% static "how_to_be_cool.png" %}" alt="cooldude" class="cooldude">
+    <img src="{% static "how_to_hack.png" %}" class="row1">
+    <img src="{% static "how_to_rap.png" %}" class="row1">
+    <img src="{% static "how_to_be_cool.png" %}" class="row1">
+</div>
+<div class="flex-container">
+    <img src="{% static "how_to_relax.png" %}"  class="row2">
+    <img src="{% static "how_to_be_woman.png" %}"  class="row2">
+    <img src="{% static "how_to_make_friends.png" %}"  class="row2">
 </div>
 {% endif %}
 
@@ -37,9 +42,11 @@
 {% endif %}
 
 
-{% if nicki.any %}
-<h3> Nicki's notes:</h3>
+<div class="flex-container row1">
 
+{% if nicki.any %}
+<div>
+<h3> Nicki's notes:</h3>
 <div class="hexa">
     <div class="hex1">
       <div class="hex2">
@@ -47,7 +54,7 @@
       </div>
     </div>
   </div>
-<p>
+</div>
     <table>
         {% for line in nicki %}
         <tr> 
@@ -55,10 +62,10 @@
         </tr>
         {% endfor %}
     </table>
-</p> 
 {% endif %}
 
 {% if kanye.any %}
+<div>
 <h3> Kanye counsels:</h3>
 
 <div class="hexa">
@@ -68,7 +75,7 @@
       </div>
     </div>
   </div>
-<p>
+</div>
     <table>
         {% for line in kanye %}
         <tr> 
@@ -76,34 +83,15 @@
         </tr>
         {% endfor %}
     </table>
-</p> 
 {% endif %}
 
-
-{% if mia.any %}
-<h3> M.I.A mmmm:</h3>
-
-<div class="hexa">
-    <div class="hex1">
-      <div class="hex2">
-        <img src="{% static "mia_green.png" %}" alt="MIA" class = "hex_face"/>
-      </div>
-    </div>
-  </div>
-<p> 
-    <table>
-        {% for line in mia %}
-        <tr> 
-            <td>{{ line }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</p>  
-{% endif %}
+</div>
 
 
+<div class="flex-container row2">
 
 {% if postie.any %}
+<div>
 <h3> Posty proposes:</h3>
 
 <div class="hexa">
@@ -113,7 +101,8 @@
       </div>
     </div>
   </div>
-<p> 
+</div>
+
     <table>
         {% for line in postie %}
         <tr> 
@@ -121,8 +110,33 @@
         </tr>
         {% endfor %}
     </table>
-</p>  
 {% endif %}
+
+
+{% if mia.any %}
+<div>
+<h3> M.I.A mmmm:</h3>
+
+<div class="hexa">
+    <div class="hex1">
+      <div class="hex2">
+        <img src="{% static "mia_green.png" %}" alt="MIA" class = "hex_face"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <table >
+        {% for line in mia %}
+        <tr> 
+            <td>{{ line }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+
+</div>
 
 </body>
 </html>
