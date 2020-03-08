@@ -57,4 +57,4 @@ def get_artist_lyrics(artist_file, input_lyric, rhymes):
             rhyme_tbl = new_tbl
         rhyme_tbl = rhyme_tbl["LINE"] # take only the column with desired lyric
     
-    return rhyme_tbl
+    return rhyme_tblg

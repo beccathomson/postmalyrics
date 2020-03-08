@@ -23,11 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$b4u_d1yp7fn2(-v5r0#+$2(496$*@6$*ov-zc^e8qn@p&imwv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
   # TODO: add your Google Cloud Project-ID here
     'http://cmd-f2020-270508.appspot.com', # must add the app engine (project-id) domain here
+    '127.0.0.1',
+    'cmd-f2020-270508.appspot.com'
 ]
 
 # Application definition
@@ -120,4 +122,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
+STATIC_URL = 'https://storage.googleapis.com/www.cmd-f2020-270508.appspot.com/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')

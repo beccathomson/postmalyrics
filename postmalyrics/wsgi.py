@@ -13,4 +13,4 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'postmalyrics.settings')
 
-application = get_wsgi_application()
+main = get_wsgi_application()
