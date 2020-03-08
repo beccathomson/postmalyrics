@@ -16,7 +16,7 @@
 {% endif %}
 
 
-{% if not kanye.empty %}<h3> Kanye recommends:</h3>
+{% if kanye.any %}<h3> Kanye recommends:</h3>
     <table>
         {% for line in kanye %}
         <tr> 
