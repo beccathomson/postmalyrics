@@ -44,7 +44,7 @@
 
 <div class="flex-container row1">
 
-{% if nicki.any %}
+
 <div>
 <h3> Nicki's notes:</h3>
 <div class="hexa">
@@ -55,6 +55,7 @@
     </div>
   </div>
 </div>
+{% if nicki.any %}
     <table>
         {% for line in nicki %}
         <tr> 
@@ -65,9 +66,15 @@
 {% endif %}
 
 {% if kanye.any %}
+    <table>
+        {% for line in kanye %}
+        <tr> 
+            <td>{{ line }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 <div>
 <h3> Kanye counsels:</h3>
-
 <div class="hexa">
     <div class="hex1">
       <div class="hex2">
@@ -76,13 +83,6 @@
     </div>
   </div>
 </div>
-    <table>
-        {% for line in kanye %}
-        <tr> 
-            <td>{{ line }}</td>
-        </tr>
-        {% endfor %}
-    </table>
 {% endif %}
 
 </div>
@@ -114,19 +114,7 @@
 
 
 {% if mia.any %}
-<div>
-<h3> M.I.A mmmm:</h3>
-
-<div class="hexa">
-    <div class="hex1">
-      <div class="hex2">
-        <img src="{% static "mia_green.png" %}" alt="MIA" class = "hex_face"/>
-      </div>
-    </div>
-  </div>
-</div>
-
-    <table >
+   <table >
         {% for line in mia %}
         <tr> 
             <td>{{ line }}</td>
@@ -135,7 +123,17 @@
     </table>
 {% endif %}
 
-
+<div>
+    <h3> M.I.A insists:</h3>
+    
+    <div class="hexa">
+        <div class="hex1">
+            <div class="hex2">
+            <img src="{% static "mia_green.png" %}" alt="MIA" class = "hex_face"/>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
 
 </body>

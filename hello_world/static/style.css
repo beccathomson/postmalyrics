@@ -27,6 +27,7 @@ p {display: flex; width: 40%;}
 
 .flex-container {
     display: flex;
+    max-width: 100%;
 }
 
 .lyric_box, .lyric_button {
