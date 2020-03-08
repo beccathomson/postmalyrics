@@ -16,7 +16,7 @@
 
 
 {% if kanye.any %}
-<h3> Kanye recommends:</h3>
+<h3> Kanye counsels:</h3>
 <img src="{% static "kanye_thinking.jpg" %}" alt="Ye" style="float:left;width:100px">
     <table>
         {% for line in kanye %}
@@ -27,3 +27,15 @@
     </table>
 {% endif %}
 
+
+{% if postie.any %}
+<h3> Postie proposes:</h3>
+<img src="{% static "postie.jpg" %}" alt="Postie" style="float:left;width:100px">
+    <table>
+        {% for line in postie %}
+        <tr> 
+            <td>{{ line }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
