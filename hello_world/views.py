@@ -5,7 +5,7 @@ from datamuse import datamuse
 import pandas as pd
 import random
 
-NUM_ROWS = 10
+NUM_ROWS = 1
 
 def index(request): 
     rhymes = ""
