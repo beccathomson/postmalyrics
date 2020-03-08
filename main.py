@@ -1,0 +1,1 @@
+from postmalyrics.wsgi import main as app

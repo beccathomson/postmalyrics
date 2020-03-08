@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-
+{% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />  
+    <link rel="stylesheet" type="text/css" href="{% static "style.css" %}" />  
     <link href="https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arapey&display=swap" rel="stylesheet">
 </head>
@@ -9,8 +9,19 @@
 <body>
 
 <h1>PostMaLyrics: a professional service for rappers who mean business</h1>
-
-{% load static %}
+<font size="3" color="grey"><i>"If you had... One shot... Or one opportunity... To seize everything you ever wanted...
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    In one moment... Would you capture it... Or just let it slip?"</i></font>
+    <br>
+  
 
 <form action="." method="post"> 
     {% csrf_token %}
