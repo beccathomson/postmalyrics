@@ -3,33 +3,24 @@ from django import forms
 from .forms import LyricInputForm
 from datamuse import datamuse
 
-def index(request): # initial load
+def index(request): 
     output = ""
 
     if request.method == 'POST':
         form = LyricInputForm(request.POST)
         input_lyric = form.get_lyric()
-        print("GOT A LYRIC:  "+input_lyric)
-        api = datamuse.Datamuse()
-        output = api.words(rel_rhy=input_lyric, max=7)
+        output = get_output(input_lyric)
     else:
-        form = LyricInputForm(None)
+        form = LyricInputForm(None) # initial load
     
     return render(request, 'index.html', {'form':form, 'output':output})
 
 
-# def search_lyrics(request):
-#     # output =""
-#     form = LyricInputForm(request.POST or None)
-#     if request.method == 'POST':
-#         output = ""
-#         form = LyricInputForm(request.POST or None)
-#         input_lyric = form.get_lyric()
-#         print("GOT A LYRIC:  "+input_lyric)
-#         api = datamuse.Datamuse()
-#         output = api.words(rel_rhy=input_lyric, max=7)
-#         # need to render the results now...
-#         return render(request, 'index.html', {'form': form})  
-#     else:
-#         return render(request, 'index.html', {'form': form})
+def get_output(input_lyric):
+    api = datamuse.Datamuse()
+    output = api.words(rel_rhy=input_lyric, max=50)
+    sorted_output = sorted(output, key = lambda i: i['numSyllables'])
+    final_output = [x['word'] for x in sorted_output]
 
+
+    return final_output
