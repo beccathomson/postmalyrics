@@ -9,16 +9,20 @@
     <input type="text" name="lyric" id="input_lyric" placeholder="lyric">
     <input type="submit" name="search lyrics" value="search lyrics" id="search_lyrics" class="button_drop outline">
 </form>    
-{% if output %}<h3>{{ output }}</h3>{% endif %}
+{% if rhymes %}<h3>classic rhymes</h3>
+    {% for word in rhymes %}
+        {{ word }},
+    {% endfor %}
+{% endif %}
 
-{% if not kanye.empty %}<h3> Kanye recommends:<br></h3>
+
+{% if not kanye.empty %}<h3> Kanye recommends:</h3>
     <table>
         {% for line in kanye %}
         <tr> 
             <td>{{ line }}</td>
         </tr>
         {% endfor %}
-    </table>{% endif %}
+    </table>
+{% endif %}
 
-
-<img src="kanye_thinking.jpg">

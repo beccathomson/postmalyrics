@@ -5,43 +5,42 @@ from datamuse import datamuse
 import pandas as pd
 import random
 
+
 def index(request): 
-    output = ""
+    rhymes = ""
     kanye = ""
+    # postie = ""
 
     if request.method == 'POST':
         form = LyricInputForm(request.POST)
         input_lyric = form.get_lyric()
-        output, kanye = get_output(input_lyric)
+        rhymes = get_rhymes(input_lyric)
+        kanye = get_artist_lyrics("kanye_lyrics.csv", input_lyric, rhymes)
     else:
         form = LyricInputForm(None) # initial load
     
-    return render(request, 'index.html', {'form':form, 'output':output, 'kanye':kanye})
+    return render(request, 'index.html', {'form':form, 'rhymes':rhymes, 'kanye':kanye})
 
 
-def get_output(input_lyric):
-
+def get_rhymes(input_lyric):
     # Get words that rhyme with input word
     api = datamuse.Datamuse()
-    output = api.words(rel_rhy=input_lyric, max=50)
-    sorted_output = sorted(output, key = lambda i: i['numSyllables'])
-    final_output = [x['word'] for x in sorted_output]
+    rhymes = api.words(rel_rhy=input_lyric, max=50)
+    sorted_output = sorted(rhymes, key = lambda i: i['numSyllables'])
+    rhymes = [x['word'] for x in sorted_output]
+    return [word.replace('"', '') for word in rhymes]
 
+
+def get_artist_lyrics(artist_file, input_lyric, rhymes):
     # Import main lyric table
-    lyrics_tbl = pd.read_csv("kanye_lyrics.csv")
+    lyrics_tbl = pd.read_csv(artist_file)
     
     # Get table of rhyming lines
-    rhyme_tbl = lyrics_tbl[lyrics_tbl["END_WORD"].isin(final_output)]   # filter lyric table to only rhyming lines
-<<<<<<< HEAD
-    rhyme_tbl = [rhyme_tbl["LINE"]]                                     # take only the column with desired lyric, turn to list
-
-
-    return rhyme_tbl
-=======
+    rhyme_tbl = lyrics_tbl[lyrics_tbl["END_WORD"].isin(rhymes)]   # filter lyric table to only rhyming lines
     if (len(rhyme_tbl) < 1):
         rhyme_tbl = ""
     else:
         rhyme_tbl = rhyme_tbl["LINE"] # take only the column with desired lyric
+    
+    return rhyme_tbl
 
-    return final_output, rhyme_tbl
->>>>>>> 417d599864dfe96b19a097b7af83733d95941de9
