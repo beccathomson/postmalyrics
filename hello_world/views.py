@@ -3,6 +3,7 @@ from django import forms
 from .forms import LyricInputForm
 from datamuse import datamuse
 import pandas as pd
+import random
 
 def index(request): 
     output = ""
@@ -28,6 +29,7 @@ def get_output(input_lyric):
     # Import main lyric table
     lyrics_tbl = pd.read_csv("kanye_lyrics.csv")
     
-
-
-    return final_output
+    # Get table of rhyming lines
+    rhyme_tbl = lyrics_tbl[lyrics_tbl["END_WORD"].isin(final_output)]   # filter lyric table to only rhyming lines
+    rhyme_tbl = [rhyme_tbl[["LINE"]]]       # take only the column with desired lyric, turn to list
+    return rhyme_tbl
