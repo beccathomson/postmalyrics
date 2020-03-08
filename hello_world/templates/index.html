@@ -14,7 +14,7 @@
 
 <form action="." method="post"> 
     {% csrf_token %}
-    <input type="text" name="lyric" id="input_lyric" placeholder="lyric" class = "lyric_box">
+    <input type="text" name="lyric" id="input_lyric" placeholder="Enter your lyric here" class = "lyric_box">
     <input type="submit" name="search lyrics" value="search lyrics" id="search_lyrics" class="button_drop outline lyric_button">
 </form>  
 
@@ -60,24 +60,24 @@
         <table>
             {% for line in nicki %}
             <tr> 
-                <td>"{{ line }}"</td>
+                <td>{{ line }}</td>
             </tr>
             {% endfor %}
         </table>
     {% else %}
-        <table><tr><td>"looks like i'm going for a swim"</td></tr></table>
+        <table><tr><td><i>"Looks like I'm going for a swim"<br>&nbsp&nbsp&nbsp--Nicki</i></td></tr></table>
     {% endif %}
 
     {% if kanye.any %}
         <table>
             {% for line in kanye %}
             <tr> 
-                <td>"{{ line }}"</td>
+                <td>{{ line }}</td>
             </tr>
             {% endfor %}
         </table>
     {% else %}
-        <table><tr><td>"I don't even listen to rap. My apartment is too nice" -Kanye West"</td></td></tr></table>
+        <table><tr><td><i>"I don't even listen to rap<br>my apartment is too nice"<br>&nbsp&nbsp&nbsp--Kanye</i></td></td></tr></table>
     {% endif %}
 
     <div>
@@ -109,12 +109,12 @@
         <table>
             {% for line in postie %}
             <tr> 
-                <td>"{{ line }}"</td>
+                <td>{{ line }}</td>
             </tr>
             {% endfor %}
         </table>
     {% else %}
-        <table><tr><td>"canada POST"</td></tr></table>
+        <table><tr><td><i>"They said I wouldn't be nothing<br>now they always say congratulations"<br>&nbsp&nbsp&nbsp--Posty</i></td></tr></table>
     {% endif %}
 
 
@@ -122,12 +122,12 @@
         <table >
             {% for line in mia %}
             <tr> 
-                <td>"{{ line }}"</td>
+                <td>{{ line }}</td>
             </tr>
             {% endfor %}
         </table>
     {% else %}
-        <table><tr><td>"guns guns guns and english swag"</td></tr></table>
+        <table><tr><td><i>"I fly like paper, <br>get high like planes"<br>&nbsp&nbsp&nbsp--M.I.A</i></td></tr></table>
     {% endif %}
 
     <div>

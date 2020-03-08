@@ -29,7 +29,6 @@ p {display: flex; width: 40%;}
 
 td {
   font-size: 24px;
-  font-style: italic;
 }
 
 .wrapper, .wrapper *{
