@@ -54,7 +54,7 @@ def get_artist_lyrics(artist_file, input_lyric, rhymes):
             for i in range (0, NUM_ROWS):
                 rand = random.sample(range(len(rhyme_tbl)), NUM_ROWS)
                 new_tbl.append(rhyme_tbl.iloc[rand])
-
+            rhyme_tbl = new_tbl
         rhyme_tbl = rhyme_tbl["LINE"] # take only the column with desired lyric
     
     return rhyme_tbl
