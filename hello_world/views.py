@@ -9,7 +9,9 @@ NUM_ROWS = 10
 
 def index(request): 
     rhymes = ""
+    nicki = ""
     kanye = ""
+    mia = ""
     postie = ""
     placeholder = True
 
@@ -17,13 +19,15 @@ def index(request):
         form = LyricInputForm(request.POST)
         input_lyric = form.get_lyric()
         rhymes = get_rhymes(input_lyric)
+        nicki = get_artist_lyrics("nicki_lyrics.csv", input_lyric, rhymes)
         kanye = get_artist_lyrics("kanye_lyrics.csv", input_lyric, rhymes)
+        mia = get_artist_lyrics("mia_lyrics.csv", input_lyric, rhymes)
         postie = get_artist_lyrics("posty_lyrics.csv", input_lyric, rhymes)
 
     else:
         return render(request, 'index.html', {'placeholder':placeholder})
     
-    return render(request, 'index.html', {'form':form, 'rhymes':rhymes, 'kanye':kanye, 'postie':postie})
+    return render(request, 'index.html', {'form':form, 'rhymes':rhymes, 'nicki':nicki, 'kanye':kanye, 'mia':mia, 'postie':postie})
 
 
 def get_rhymes(input_lyric):

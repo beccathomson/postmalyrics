@@ -37,9 +37,37 @@
 {% endif %}
 
 
+{% if nicki.any %}
+<h3> Nicki's notes:</h3>
+
+<div class="hexa">
+    <div class="hex1">
+      <div class="hex2">
+        <img src="{% static "nicki_green.png" %}" alt="Nicki" class = "hex_face"/>
+      </div>
+    </div>
+  </div>
+<p>
+    <table>
+        {% for line in nicki %}
+        <tr> 
+            <td>{{ line }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</p> 
+{% endif %}
+
 {% if kanye.any %}
 <h3> Kanye counsels:</h3>
-<img src="{% static "kanye_thinking.jpg" %}" alt="Ye" style="float:left;width:100px">
+
+<div class="hexa">
+    <div class="hex1">
+      <div class="hex2">
+        <img src="{% static "kanye_green.png" %}" alt="Ye" class = "hex_face"/>
+      </div>
+    </div>
+  </div>
 <p>
     <table>
         {% for line in kanye %}
@@ -52,9 +80,39 @@
 {% endif %}
 
 
+{% if mia.any %}
+<h3> M.I.A mmmm:</h3>
+
+<div class="hexa">
+    <div class="hex1">
+      <div class="hex2">
+        <img src="{% static "mia_green.png" %}" alt="MIA" class = "hex_face"/>
+      </div>
+    </div>
+  </div>
+<p> 
+    <table>
+        {% for line in mia %}
+        <tr> 
+            <td>{{ line }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</p>  
+{% endif %}
+
+
+
 {% if postie.any %}
-<h3> Postie proposes:</h3>
-<img src="{% static "postie.jpg" %}" alt="Postie" style="float:left;width:100px">
+<h3> Posty proposes:</h3>
+
+<div class="hexa">
+    <div class="hex1">
+      <div class="hex2">
+        <img src="{% static "posty_green.png" %}" alt="Posty" class = "hex_face"/>
+      </div>
+    </div>
+  </div>
 <p> 
     <table>
         {% for line in postie %}
