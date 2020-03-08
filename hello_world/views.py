@@ -52,8 +52,9 @@ def get_artist_lyrics(artist_file, input_lyric, rhymes):
         if (len(rhyme_tbl) > NUM_ROWS):
             new_tbl = pd.DataFrame(columns = ["LINE", "END_WORD"])
             for i in range (0, NUM_ROWS):
-                rand = random.sample(range(len(rhyme_tbl)), NUM_ROWS)
-                new_tbl.append(rhyme_tbl.iloc[rand])
+                rand = random.sample(range(len(rhyme_tbl)), 1)
+                new_tbl = pd.concat([rhyme_tbl.iloc[rand], new_tbl], ignore_index=True)
+            print(new_tbl)    
             rhyme_tbl = new_tbl
         rhyme_tbl = rhyme_tbl["LINE"] # take only the column with desired lyric
     
