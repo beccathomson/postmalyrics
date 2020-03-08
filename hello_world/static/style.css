@@ -17,6 +17,7 @@ h3 {font-family: Zilla Slab,serif}
 
 table {
     width: 25%;
+    margin: 2%;
 }
 
 p {display: flex; width: 40%;}
