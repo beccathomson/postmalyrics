@@ -11,7 +11,14 @@
 </form>    
 {% if output %}<h3>{{ output }}</h3>{% endif %}
 
-{% if kanye %}<h3> Kanye recommends:<br>{{ kanye }}</h3>{% endif %}
+{% if not kanye.empty %}<h3> Kanye recommends:<br></h3>
+    <table>
+        {% for line in kanye %}
+        <tr> 
+            <td>{{ line }}</td>
+        </tr>
+        {% endfor %}
+    </table>{% endif %}
 
 
 <img src="kanye_thinking.jpg">
