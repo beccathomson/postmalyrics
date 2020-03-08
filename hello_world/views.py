@@ -5,7 +5,7 @@ from datamuse import datamuse
 import pandas as pd
 import random
 
-NUM_ROWS = 10
+NUM_ROWS = 1
 
 def index(request): 
     rhymes = ""
@@ -57,4 +57,4 @@ def get_artist_lyrics(artist_file, input_lyric, rhymes):
             rhyme_tbl = new_tbl
         rhyme_tbl = rhyme_tbl["LINE"] # take only the column with desired lyric
     
-    return rhyme_tblg
+    return rhyme_tbl
