@@ -1,23 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />  
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arapey&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
 <h1>PostMaLyrics: a professional service for rappers who mean business</h1>
 
-<h2><i>"I don't even listen to rap. My apartment is too nice" -Kanye West</i></h2>
+<h2>"I don't even listen to rap. My apartment is too nice" -Kanye West</h2>
 
 {% load static %}
+
 <form action="." method="post"> 
     {% csrf_token %}
-    <input type="text" name="lyric" id="input_lyric" placeholder="lyric">
-    <input type="submit" name="search lyrics" value="search lyrics" id="search_lyrics" class="button_drop outline">
-</form>    
+    <input type="text" name="lyric" id="input_lyric" placeholder="lyric" class = "lyric_box">
+    <input type="submit" name="search lyrics" value="search lyrics" id="search_lyrics" class="button_drop outline lyric_button">
+</form>  
+
+{% if placeholder %}
+<div class="flex-container">
+<img src="{% static "how_to_hack.png" %}" alt="hackerman" class="hackerman">
+<img src="{% static "how_to_rap.png" %}" alt="rapperman" class="rapperman">
+<img src="{% static "how_to_be_cool.png" %}" alt="cooldude" class="cooldude">
+</div>
+{% endif %}
+
+
 {% if rhymes %}<h3>classic rhymes</h3>
-    {% for word in rhymes %}
+   <p1 class="rhymes">{% for word in rhymes %}
         {{ word }},
     {% endfor %}
+    </p1> 
 {% endif %}
 
 
 {% if kanye.any %}
 <h3> Kanye counsels:</h3>
 <img src="{% static "kanye_thinking.jpg" %}" alt="Ye" style="float:left;width:100px">
+<p>
     <table>
         {% for line in kanye %}
         <tr> 
@@ -25,12 +48,14 @@
         </tr>
         {% endfor %}
     </table>
+</p> 
 {% endif %}
 
 
 {% if postie.any %}
 <h3> Postie proposes:</h3>
 <img src="{% static "postie.jpg" %}" alt="Postie" style="float:left;width:100px">
+<p> 
     <table>
         {% for line in postie %}
         <tr> 
@@ -38,4 +63,8 @@
         </tr>
         {% endfor %}
     </table>
+</p>  
 {% endif %}
+
+</body>
+</html>

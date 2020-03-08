@@ -5,12 +5,13 @@ from datamuse import datamuse
 import pandas as pd
 import random
 
-NUM_ROWS = 25
+NUM_ROWS = 10
 
 def index(request): 
     rhymes = ""
     kanye = ""
     postie = ""
+    placeholder = True
 
     if request.method == 'POST':
         form = LyricInputForm(request.POST)
@@ -20,7 +21,7 @@ def index(request):
         postie = get_artist_lyrics("posty_lyrics.csv", input_lyric, rhymes)
 
     else:
-        form = LyricInputForm(None) # initial load
+        return render(request, 'index.html', {'placeholder':placeholder})
     
     return render(request, 'index.html', {'form':form, 'rhymes':rhymes, 'kanye':kanye, 'postie':postie})
 
@@ -45,7 +46,11 @@ def get_artist_lyrics(artist_file, input_lyric, rhymes):
         rhyme_tbl = ""
     else:
         if (len(rhyme_tbl) > NUM_ROWS):
-            rhyme_tbl = rhyme_tbl[:NUM_ROWS]
+            new_tbl = pd.DataFrame(columns = ["LINE", "END_WORD"])
+            for i in range (0, NUM_ROWS):
+                rand = random.sample(range(len(rhyme_tbl)), NUM_ROWS)
+                new_tbl.append(rhyme_tbl.iloc[rand])
+
         rhyme_tbl = rhyme_tbl["LINE"] # take only the column with desired lyric
     
     return rhyme_tbl
