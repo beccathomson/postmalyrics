@@ -30,6 +30,11 @@ p {display: flex; width: 40%;}
     max-width: 100%;
 }
 
+.flex-container > * {
+    min-width: 0;
+    min-height: 0;
+} 
+
 .lyric_box, .lyric_button {
     font-size: 20px;
     font-family: Arapey, serif;
