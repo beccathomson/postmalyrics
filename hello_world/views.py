@@ -5,6 +5,7 @@ from datamuse import datamuse
 import pandas as pd
 import random
 
+NUM_ROWS = 25
 
 def index(request): 
     rhymes = ""
@@ -35,12 +36,14 @@ def get_artist_lyrics(artist_file, input_lyric, rhymes):
     # Import main lyric table
     lyrics_tbl = pd.read_csv(artist_file)
     
-    # Get table of rhyming lines
-    rhyme_tbl = lyrics_tbl[lyrics_tbl["END_WORD"].isin(rhymes)]   # filter lyric table to only rhyming lines
+    # Get table of rhyming lines (<= NUM_ROWS)
+    rhyme_tbl = lyrics_tbl[lyrics_tbl["END_WORD"].isin(rhymes)]  # filter lyric table to only rhyming lines
+
     if (len(rhyme_tbl) < 1):
         rhyme_tbl = ""
     else:
+        if (len(rhyme_tbl) > NUM_ROWS):
+            rhyme_tbl = rhyme_tbl[:NUM_ROWS]
         rhyme_tbl = rhyme_tbl["LINE"] # take only the column with desired lyric
     
     return rhyme_tbl
-

@@ -3,7 +3,6 @@
 <h2><i>"I don't even listen to rap. My apartment is too nice" -Kanye West</i></h2>
 
 {% load static %}
-<img src="{% static "kanye_thinking.jpg" %}" alt="My image">
 <form action="." method="post"> 
     {% csrf_token %}
     <input type="text" name="lyric" id="input_lyric" placeholder="lyric">
@@ -16,7 +15,9 @@
 {% endif %}
 
 
-{% if kanye.any %}<h3> Kanye recommends:</h3>
+{% if kanye.any %}
+<h3> Kanye recommends:</h3>
+<img src="{% static "kanye_thinking.jpg" %}" alt="Ye" style="float:left;width:100px">
     <table>
         {% for line in kanye %}
         <tr> 
