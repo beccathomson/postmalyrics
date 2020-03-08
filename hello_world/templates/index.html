@@ -10,13 +10,11 @@
 
 <h1>PostMaLyrics: a professional service for rappers who mean business</h1>
 
-<h2>"I don't even listen to rap. My apartment is too nice" -Kanye West</h2>
-
 {% load static %}
 
 <form action="." method="post"> 
     {% csrf_token %}
-    <input type="text" name="lyric" id="input_lyric" placeholder="lyric" class = "lyric_box">
+    <input type="text" name="lyric" id="input_lyric" placeholder="Enter your lyric here" class = "lyric_box">
     <input type="submit" name="search lyrics" value="search lyrics" id="search_lyrics" class="button_drop outline lyric_button">
 </form>  
 
@@ -34,7 +32,7 @@
 {% endif %}
 
 
-{% if rhymes %}<h3>classic rhymes</h3>
+{% if rhymes %}<h3>Classic Rhymes</h3>
    <p1 class="rhymes">{% for word in rhymes %}
         {{ word }},
     {% endfor %}
@@ -46,7 +44,7 @@
 
 
 <div>
-<h3> Nicki's notes:</h3>
+<h3> Nicki's Notes:</h3>
 <div class="hexa">
     <div class="hex1">
       <div class="hex2">
@@ -74,7 +72,7 @@
         {% endfor %}
     </table>
 <div>
-<h3> Kanye counsels:</h3>
+<h3> Kanye Counsels:</h3>
 <div class="hexa">
     <div class="hex1">
       <div class="hex2">
@@ -92,7 +90,7 @@
 
 {% if postie.any %}
 <div>
-<h3> Posty proposes:</h3>
+<h3> Posty Proposes:</h3>
 
 <div class="hexa">
     <div class="hex1">
@@ -124,7 +122,7 @@
 {% endif %}
 
 <div>
-    <h3> M.I.A insists:</h3>
+    <h3> M.I.A Insists:</h3>
     
     <div class="hexa">
         <div class="hex1">
