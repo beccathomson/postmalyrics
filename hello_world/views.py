@@ -32,7 +32,10 @@ def get_output(input_lyric):
     
     # Get table of rhyming lines
     rhyme_tbl = lyrics_tbl[lyrics_tbl["END_WORD"].isin(final_output)]   # filter lyric table to only rhyming lines
-    rhyme_tbl = [rhyme_tbl[["LINE"]]] # take only the column with desired lyric, turn to list
+    if (len(rhyme_tbl) < 1):
+        rhyme_tbl = ""
+    else:
+        rhyme_tbl = [rhyme_tbl[["LINE"]]] # take only the column with desired lyric, turn to list
 
 
     return final_output, rhyme_tbl
